@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src:local('Plus Jakarta Sans'), url('/src/assets/font/PlusJakartaSans-VariableFont_wght.woff2') format('woff2');
+}
+@tailwind utilities;
