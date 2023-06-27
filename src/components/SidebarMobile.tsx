@@ -14,9 +14,11 @@ export const SidebarMobile = () => {
     const dragX = useMotionValue(0)
     let dragStartX = 0
     const handleDragStart = (event:any,info:any) => {
+        event
         dragStartX = info.point.x
     }
     const handleDragEnd = (event:any,info:any) => {
+        event
         const dragThreshold = refMenu.current?.offsetWidth
         const dragDistance = info.point.x - dragStartX
 
