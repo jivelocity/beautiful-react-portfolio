@@ -1,17 +1,15 @@
+import { data } from "../static/data"
+import {Divider} from "./Divider"
+import { Marquee } from "./Marquee"
 
-interface SkillsProps {
-  className?:string
-}
-
-export const Skills: React.FC<SkillsProps> = ({
-    className
- }) => {
+export const Skills = () => {
+    const title = data.skills.title
   return (
-    <div className="bg-red-200 max-w-7xl min-h-screen flex w-full flex-col">
-        <section className={`${className} bg-yellow-200 w-full`}>
-        About
-
-        </section>
-    </div>
+        <div id="skills" className=" max-w-7xl py-14 flex w-full flex-col items-center ">
+                <Divider title={title}/>
+            <div className="w-full flex flex-col justify-center items-center mt-12">
+                <Marquee/>
+            </div>
+        </div>
   )
 }

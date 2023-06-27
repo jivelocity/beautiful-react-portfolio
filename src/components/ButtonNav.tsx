@@ -1,30 +1,40 @@
 import { ReactNode } from "react";
+import { HashLink } from "react-router-hash-link";
+import { useIsOpenStore } from "../store/useIsOpenStore";
+
+
 interface ButtonNavProps {
-  className?:string
   text: string
   icon?:ReactNode
   textPosition?: 'left' | 'right'
+  to: string
 }
 
 export const ButtonNav: React.FC<ButtonNavProps> = ({
-    className,
+
     text,
     icon,
-    textPosition = "left"
+    textPosition = "left",
+    to
  }) => {
+    const toggleMenu = useIsOpenStore()
   return (
     <>
         {textPosition === 'left' && (
-            <div className={`${className} btn btn-ghost btn-neutral text-lg flex justify-start capitalize rounded-md w-full`}>
-                {icon}
-                {text}
-            </div>
+            <HashLink smooth to={to}>
+                <div onClick={() => toggleMenu.setIsOpen()} className={` btn btn-ghost btn-neutral text-lg flex justify-start capitalize rounded w-full`}>
+                    {icon}
+                    {text}
+                </div>
+            </HashLink>
         )}
         {textPosition === 'right' && (
-            <div className={`${className} btn btn-ghost btn-neutral text-lg flex justify-end capitalize rounded-md w-full`}>
-                {text}
-                {icon}
-            </div>
+            <HashLink smooth to={to}>
+                <div onClick={() => toggleMenu.setIsOpen()} className={` btn btn-ghost btn-neutral text-lg flex justify-end capitalize rounded w-full`}>
+                    {text}
+                    {icon}
+                </div>
+            </HashLink>
         )}
     </>
   )

@@ -1,6 +1,7 @@
 import { Contents } from "./components/Contents"
 import { Navbar } from "./components/Navbar"
 import { Sidebar } from "./components/Sidebar"
+import { Toaster } from "react-hot-toast";
 
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
         <Navbar/>
         <Sidebar/>
         <Contents />
+        <Toaster/>
       </div>
     </>
   )
